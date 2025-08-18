@@ -45,22 +45,24 @@
             padding-right: 1rem;
             max-width: 64rem;
         }
-        /* CSS for the logo ticker animation */
+        /* Updated CSS for the logo ticker animation */
         .ticker-container {
             overflow: hidden;
             white-space: nowrap;
         }
         .ticker-wrapper {
             display: inline-block;
-            animation: ticker-animation 30s linear infinite;
+            animation: ticker-animation 40s linear infinite; /* Adjusted animation speed */
+            padding: 0 100%; /* Ensures logos move fully off-screen before looping */
         }
         .ticker-wrapper:hover {
             animation-play-state: paused;
         }
         .ticker-item {
             display: inline-block;
-            margin: 0 2rem;
-            height: 60px;
+            margin: 0 4rem; /* Increased spacing between logos */
+            height: 80px; /* Increased logo size */
+            width: auto;
             vertical-align: middle;
         }
         @keyframes ticker-animation {
@@ -151,7 +153,7 @@
                  <div class="space-y-6 text-center fade-in">
                     <h2 class="text-3xl font-bold text-gray-800">My Web Design Clients</h2>
                     <p class="text-lg text-gray-700 mb-8">A selection of web design projects from my personal portfolio, showcasing diverse work across multiple platforms.</p>
-                    <div class="ticker-container">
+                    <div class="ticker-container py-8">
                         <div class="ticker-wrapper">
                             <img src="change.png" alt="Change Logo" class="ticker-item">
                             <img src="m87melbourne.png" alt="M87 Melbourne Logo" class="ticker-item">
