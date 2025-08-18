@@ -14,10 +14,10 @@
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
+        /* Updated hero background inspired by the provided image */
         .hero-bg {
-            background-image: url('https://placehold.co/1920x1080/000000/FFFFFF?text=Website+Hero+Background');
-            background-size: cover;
-            background-position: center;
+            background-color: #5d429a;
+            background-image: linear-gradient(to right, #5d429a, #8257e5);
         }
         .sticky-header {
             transition: background-color 0.3s ease;
@@ -43,7 +43,10 @@
     <!-- Sticky Header -->
     <header id="header" class="sticky top-0 z-50 p-4 sticky-header">
         <div class="container mx-auto flex items-center justify-between">
-            <a href="#home" class="text-2xl font-bold text-gray-800">Marlyg</a>
+            <!-- New Logo Image -->
+            <a href="#home" class="flex items-center">
+                <img src="https://i.imgur.com/VhIydxy.png" alt="Marlyg Solutions Logo" class="h-8">
+            </a>
             
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-6 items-center">
@@ -74,9 +77,9 @@
 
     <main>
         <!-- Home Page -->
-        <section id="home" class="min-h-screen hero-bg flex items-center justify-center text-center text-white py-16 px-4">
-            <div class="max-w-4xl mx-auto">
-                <h1 class="text-4xl sm:text-6xl font-bold mb-4 fade-in">Automate Your Business. Focus on What Matters.</h1>
+        <section id="home" class="min-h-screen hero-bg flex items-center justify-center text-center py-16 px-4">
+            <div class="max-w-4xl mx-auto text-white">
+                <h1 class="text-4xl sm:text-6xl font-bold mb-4 fade-in">Leave the tech to us.</h1>
                 <p class="text-xl sm:text-2xl font-light mb-8 fade-in">We craft custom AI-powered workflow solutions to make your business more efficient and effective.</p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center fade-in">
                     <a href="#contact" class="px-8 py-4 bg-white text-indigo-600 rounded-full hover:bg-gray-100 transition-colors font-semibold shadow-lg">Get Started</a>
