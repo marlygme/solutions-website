@@ -38,6 +38,12 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .container {
+            width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            max-width: 64rem;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -45,8 +51,7 @@
     <!-- Sticky Header -->
     <header id="header" class="sticky top-0 z-50 p-4 sticky-header">
         <div class="container mx-auto flex items-center justify-between">
-            <!-- New Logo Image -->
-            <a href="#home" class="flex items-center">
+            <a href="index.html" class="flex items-center">
                 <img src="https://i.imgur.com/VhIydxy.png" alt="Marlyg Solutions Logo" class="h-8">
             </a>
             
@@ -54,7 +59,7 @@
             <nav class="hidden md:flex space-x-6 items-center">
                 <a href="services.html" class="text-gray-600 hover:text-gray-900 transition-colors">Services</a>
                 <a href="ai-solutions.html" class="text-gray-600 hover:text-gray-900 transition-colors">AI Solutions</a>
-                <a href="#portfolio" class="text-gray-600 hover:text-gray-900 transition-colors">Portfolio</a>
+                <a href="portfolio.html" class="text-gray-600 hover:text-gray-900 transition-colors">Portfolio</a>
                 <a href="#about" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
                 <a href="#contact" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
                 <a href="get-a-quote.html" class="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors font-medium">Get a Quote</a>
@@ -70,7 +75,7 @@
         <nav id="mobile-menu" class="hidden md:hidden bg-white mt-4 rounded-lg shadow-lg">
             <a href="services.html" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">Services</a>
             <a href="ai-solutions.html" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">AI Solutions</a>
-            <a href="#portfolio" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">Portfolio</a>
+            <a href="portfolio.html" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">Portfolio</a>
             <a href="#about" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">About</a>
             <a href="#contact" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">Contact</a>
             <a href="get-a-quote.html" class="block py-2 px-4 bg-indigo-600 text-white hover:bg-indigo-700 rounded-b-lg transition-colors font-medium">Get a Quote</a>
@@ -230,7 +235,7 @@
                         <img src="https://placehold.co/100x100/D1D5DB/4B5563?text=M" alt="Marlyg Profile" class="rounded-full mx-auto mb-6">
                         <h3 class="text-2xl font-bold">Marlyg</h3>
                         <p class="text-lg text-gray-600 mb-4">Founder & Lead Solutions Architect</p>
-                        <p class="text-gray-700">I’m a Melbourne-based web designer with a year of experience creating custom websites for businesses and creatives. I specialise in platforms like ReadyMag, Shopify & Framer and also custom coded websites, with work ranging from portfolios to e-commerce sites. I am currently completing a Bachelor of Information and Communication Technology at Swinburne University of Technology, and I hold a Cisco Networking Certificate, awarded with a Letter of Merit by CEO Chuck Robbins.</p>
+                        <p class="text-gray-700">I'm a seasoned professional in the technology and automation space, passionate about building custom solutions that empower businesses to thrive. With a background in [Your Professional Background], I have a deep understanding of how to leverage technology to solve real-world business challenges. I started Marlyg to help other business owners like you achieve greater efficiency and success.</p>
                     </div>
                 </div>
             </div>
@@ -353,16 +358,16 @@
                     <h4 class="text-xl font-bold text-white mb-2">Quick Links</h4>
                     <a href="services.html" class="block hover:text-white transition-colors">Services</a>
                     <a href="ai-solutions.html" class="block hover:text-white transition-colors">AI Solutions</a>
-                    <a href="#portfolio" class="block hover:text-white transition-colors">Portfolio</a>
-                    <a href="#about" class="block hover:text-white transition-colors">About</a>
-                    <a href="#contact" class="block hover:text-white transition-colors">Contact</a>
+                    <a href="portfolio.html" class="block hover:text-white transition-colors">Portfolio</a>
+                    <a href="index.html#about" class="block hover:text-white transition-colors">About</a>
+                    <a href="index.html#contact" class="block hover:text-white transition-colors">Contact</a>
                     <a href="get-a-quote.html" class="block hover:text-white transition-colors">Get a Quote</a>
                 </div>
                 <!-- Contact Info -->
                 <div class="space-y-2">
                     <h4 class="text-xl font-bold text-white mb-2">Contact</h4>
                     <a href="tel:+61412345678" class="block hover:text-white transition-colors"><i class="fas fa-phone mr-2"></i>+61 412 345 678</a>
-                    <a href="mailto:contact@marlyg.com" class="block hover:text-white transition-colors"><i class="fas fa-envelope mr-2"></i>contact@marlyg.net</a>
+                    <a href="mailto:contact@marlyg.com" class="block hover:text-white transition-colors"><i class="fas fa-envelope mr-2"></i>contact@marlyg.com</a>
                 </div>
                 <!-- Policies -->
                 <div class="space-y-2">
@@ -431,23 +436,6 @@
 
         faders.forEach(fader => {
             appearOnScroll.observe(fader);
-        });
-
-        // FAQ accordion
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const answer = button.nextElementSibling;
-                const icon = button.querySelector('i');
-
-                // Toggle visibility and rotation
-                if (answer.classList.contains('hidden')) {
-                    answer.classList.remove('hidden');
-                    icon.classList.add('rotate-180');
-                } else {
-                    answer.classList.add('hidden');
-                    icon.classList.remove('rotate-180');
-                }
-            });
         });
     </script>
 </body>
