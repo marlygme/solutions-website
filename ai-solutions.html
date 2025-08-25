@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Solutions | Marlyg Solutions</title>
+    <!-- SEO Meta Tags for AI Solutions Page -->
+    <meta name="description" content="Explore our pre-packaged and custom AI-powered workflows designed to automate marketing, sales, customer support, and more for your business.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="marlyg.netfavicon.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-color: #5d429a;
+            background-image: linear-gradient(to right, #5d429a, #8257e5);
+        }
+        .sticky-header {
+            transition: background-color 0.3s ease;
+        }
+        .sticky-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Sticky Header -->
+    <header id="header" class="sticky top-0 z-50 p-4 sticky-header">
+        <div class="container mx-auto max-w-6xl flex items-center justify-between">
+            <a href="index.html" class="flex items-center">
+                <img src="https://i.imgur.com/b9K8xpP.png" alt="Marlyg Solutions Logo" class="h-8">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6 items-center">
+                <a href="services.html" class="text-gray-600 hover:text-gray-900 transition-colors">Services</a>
+                <a href="#ai-solutions" class="text-gray-600 hover:text-gray-900 transition-colors font-bold">AI Solutions</a>
+                <a href="index.html#portfolio" class="text-gray-600 hover:text-gray-900 transition-colors">Portfolio</a>
+                <a href="index.html#about" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
+                <a href="index.html#contact" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                <a href="get-a-quote.html" class="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors font-medium">Get a Quote</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-white mt-4 rounded-lg shadow-lg">
+            <a href="services.html" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">Services</a>
+            <a href="#ai-solutions" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">AI Solutions</a>
+            <a href="index.html#portfolio" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">Portfolio</a>
+            <a href="index.html#about" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">About</a>
+            <a href="index.html#contact" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">Contact</a>
+            <a href="get-a-quote.html" class="block py-2 px-4 bg-indigo-600 text-white hover:bg-indigo-700 rounded-b-lg transition-colors font-medium">Get a Quote</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- AI Solutions Hero Section -->
+        <section id="ai-solutions-hero" class="py-20 hero-bg flex items-center justify-center text-center text-white px-4">
+            <div class="container mx-auto max-w-6xl">
+                <h1 class="text-4xl sm:text-6xl font-bold mb-4 fade-in">AI Workflow Solutions</h1>
+                <p class="text-xl sm:text-2xl font-light fade-in">Automate your business processes and unlock new levels of efficiency.</p>
+            </div>
+        </section>
+
+        <!-- Our Solutions Section -->
+        <section id="our-solutions" class="py-20 px-4 bg-white">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800">Our Workflow Accelerators</h2>
+                    <p class="text-xl text-gray-600 mt-4">Pre-packaged solutions designed to solve common business problems and accelerate your growth.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Solution Card 1: Marketing Automation -->
+                    <div class="bg-gray-100 rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow flex flex-col fade-in">
+                        <div class="flex-grow">
+                            <i class="fas fa-envelope-open-text text-4xl text-indigo-600 mb-4"></i>
+                            <h3 class="text-2xl font-bold mb-2">Marketing Automation</h3>
+                            <p class="text-gray-700">Streamline your campaigns by automating email sequences, social media posting, and lead nurturing, ensuring no opportunity is missed.</p>
+                        </div>
+                    </div>
+                    <!-- Solution Card 2: Customer Support Bots -->
+                    <div class="bg-gray-100 rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow flex flex-col fade-in">
+                        <div class="flex-grow">
+                            <i class="fas fa-users text-4xl text-indigo-600 mb-4"></i>
+                            <h3 class="text-2xl font-bold mb-2">Customer Support Bots</h3>
+                            <p class="text-gray-700">Deploy intelligent chatbots to handle routine inquiries 24/7, improving response times and freeing your team for complex issues.</p>
+                        </div>
+                    </div>
+                    <!-- Solution Card 3: Billing & Invoicing -->
+                    <div class="bg-gray-100 rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow flex flex-col fade-in">
+                        <div class="flex-grow">
+                            <i class="fas fa-file-invoice-dollar text-4xl text-indigo-600 mb-4"></i>
+                            <h3 class="text-2xl font-bold mb-2">Billing & Invoicing</h3>
+                            <p class="text-gray-700">Automate invoice generation, payment tracking, and overdue reminders to ensure a steady cash flow and reduce administrative burden.</p>
+                        </div>
+                    </div>
+                    <!-- Solution Card 4: Scheduling Automation -->
+                    <div class="bg-gray-100 rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow flex flex-col fade-in">
+                        <div class="flex-grow">
+                            <i class="fas fa-calendar-alt text-4xl text-indigo-600 mb-4"></i>
+                            <h3 class="text-2xl font-bold mb-2">Scheduling Automation</h3>
+                            <p class="text-gray-700">Seamlessly integrate your calendar and communication tools to automate appointment booking, reminders, and follow-ups with clients.</p>
+                        </div>
+                    </div>
+                    <!-- Solution Card 5: Data Sync & Reporting -->
+                    <div class="bg-gray-100 rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow flex flex-col fade-in">
+                        <div class="flex-grow">
+                            <i class="fas fa-database text-4xl text-indigo-600 mb-4"></i>
+                            <h3 class="text-2xl font-bold mb-2">Data Sync & Reporting</h3>
+                            <p class="text-gray-700">Keep data synchronized across multiple platforms and automatically generate insightful reports for key stakeholders.</p>
+                        </div>
+                    </div>
+                    <!-- Solution Card 6: E-commerce Operations -->
+                    <div class="bg-gray-100 rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow flex flex-col fade-in">
+                        <div class="flex-grow">
+                            <i class="fas fa-cart-shopping text-4xl text-indigo-600 mb-4"></i>
+                            <h3 class="text-2xl font-bold mb-2">E-commerce Operations</h3>
+                            <p class="text-gray-700">Streamline your online store by automating order processing, inventory management, and shipping notifications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Process Section -->
+        <section id="our-process" class="py-20 px-4 bg-gray-50">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800">Our Three-Step Process</h2>
+                    <p class="text-xl text-gray-600 mt-4">We make implementing powerful automation simple and straightforward.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <!-- Step 1 -->
+                    <div class="space-y-4 p-6 rounded-xl fade-in">
+                        <div class="flex items-center justify-center w-24 h-24 mx-auto rounded-full bg-indigo-600 text-white text-3xl font-bold mb-4">
+                            1
+                        </div>
+                        <h3 class="text-2xl font-bold">Consult</h3>
+                        <p class="text-lg text-gray-700">We work with you to understand your current business processes and identify opportunities for automation.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="space-y-4 p-6 rounded-xl fade-in">
+                         <div class="flex items-center justify-center w-24 h-24 mx-auto rounded-full bg-indigo-600 text-white text-3xl font-bold mb-4">
+                            2
+                        </div>
+                        <h3 class="text-2xl font-bold">Build & Deploy</h3>
+                        <p class="text-lg text-gray-700">Our team customizes and implements the workflow solution, ensuring it integrates perfectly with your existing tools.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="space-y-4 p-6 rounded-xl fade-in">
+                         <div class="flex items-center justify-center w-24 h-24 mx-auto rounded-full bg-indigo-600 text-white text-3xl font-bold mb-4">
+                            3
+                        </div>
+                        <h3 class="text-2xl font-bold">Support</h3>
+                        <p class="text-lg text-gray-700">We provide ongoing support and maintenance to ensure your new automations run smoothly and continue to deliver value.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-20 px-4 text-center hero-bg text-white">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 fade-in">Ready to Accelerate Your Business?</h2>
+                <p class="text-xl font-light mb-8 fade-in">Let's build a smarter, more efficient workflow for your team.</p>
+                <a href="get-a-quote.html" class="px-8 py-4 bg-white text-indigo-600 rounded-full hover:bg-gray-100 transition-colors font-semibold shadow-lg">Get a Custom Quote</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12 px-4">
+        <div class="container mx-auto max-w-6xl text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-left">
+                <!-- Links -->
+                <div class="space-y-2">
+                    <h4 class="text-xl font-bold text-white mb-2">Quick Links</h4>
+                    <a href="services.html" class="block hover:text-white transition-colors">Services</a>
+                    <a href="#ai-solutions-hero" class="block hover:text-white transition-colors">AI Solutions</a>
+                    <a href="index.html#portfolio" class="block hover:text-white transition-colors">Portfolio</a>
+                    <a href="index.html#about" class="block hover:text-white transition-colors">About</a>
+                    <a href="index.html#contact" class="block hover:text-white transition-colors">Contact</a>
+                    <a href="get-a-quote.html" class="block hover:text-white transition-colors">Get a Quote</a>
+                </div>
+                <!-- Contact Info -->
+                <div class="space-y-2">
+                    <h4 class="text-xl font-bold text-white mb-2">Contact</h4>
+                    <a href="tel:+61412345678" class="block hover:text-white transition-colors"><i class="fas fa-phone mr-2"></i>+61 412 345 678</a>
+                    <a href="mailto:contact@marlyg.net" class="block hover:text-white transition-colors"><i class="fas fa-envelope mr-2"></i>contact@marlyg.net</a>
+                </div>
+                <!-- Policies -->
+                <div class="space-y-2">
+                    <h4 class="text-xl font-bold text-white mb-2">Legal</h4>
+                    <a href="#" class="block hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="block hover:text-white transition-colors">Terms & Conditions</a>
+                    <a href="#" class="block hover:text-white transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+            <hr class="border-gray-700 mb-8">
+            <div class="space-y-2">
+                <p class="text-sm">ABN: 12 345 678 901</p>
+                <p class="text-sm">&copy; 2024 Marlyg. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Sticky header logic
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.getElementById('mobile-menu').querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Fade-in on scroll
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.2
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
