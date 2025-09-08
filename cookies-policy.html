@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Policy - Marlyg Solutions</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="marlyg.netfavicon.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-color: #5d429a;
+            background-image: linear-gradient(to right, #5d429a, #8257e5);
+        }
+        .sticky-header {
+            transition: background-color 0.3s ease;
+        }
+        .sticky-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .container {
+            width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            max-width: 64rem;
+        }
+        /* Full-screen menu overlay */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #5d429a 0%, #8257e5 100%);
+            z-index: 60;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .menu-content {
+            text-align: center;
+            color: white;
+            transform: translateY(30px);
+            transition: transform 0.3s ease;
+        }
+        .menu-overlay.active .menu-content {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Sticky Header -->
+    <header id="header" class="sticky top-0 z-50 p-4 sticky-header">
+        <div class="container mx-auto flex items-center justify-between">
+            <a href="index.html" class="flex items-center">
+                <img src="https://i.imgur.com/b9K8xpP.png" alt="Marlyg Solutions Logo" class="h-8">
+            </a>
+            
+            <!-- Menu Button -->
+            <button id="menu-toggle" class="text-gray-600 hover:text-gray-900 focus:outline-none transition-colors">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Full-Screen Menu Overlay -->
+    <div id="menu-overlay" class="menu-overlay">
+        <div class="menu-content">
+            <div class="mb-8">
+                <img src="https://i.imgur.com/b9K8xpP.png" alt="Marlyg Solutions Logo" class="h-12 mx-auto mb-8 brightness-0 invert">
+            </div>
+            
+            <nav class="space-y-6">
+                <a href="services.html" class="block text-2xl text-white hover:text-indigo-200 transition-colors">Services</a>
+                <a href="ai-solutions.html" class="block text-2xl text-white hover:text-indigo-200 transition-colors">AI Solutions</a>
+                <a href="portfolio.html" class="block text-2xl text-white hover:text-indigo-200 transition-colors">Portfolio</a>
+                <a href="pricing.html" class="block text-2xl text-white hover:text-indigo-200 transition-colors">Pricing</a>
+                <a href="about.html" class="block text-2xl text-white hover:text-indigo-200 transition-colors">About</a>
+                <a href="contact.html" class="block text-2xl text-white hover:text-indigo-200 transition-colors">Contact</a>
+            </nav>
+            
+            <div class="mt-12 space-y-4">
+                <a href="get-a-quote.html" class="inline-block px-8 py-4 bg-white text-indigo-600 rounded-full hover:bg-indigo-50 transition-colors font-semibold text-lg">Get a Quote</a>
+                <br>
+                <a href="#" class="inline-block px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white hover:text-indigo-600 transition-colors font-semibold text-lg">Client Login</a>
+            </div>
+            
+            <div class="mt-12 text-sm space-x-6">
+                <a href="privacy-policy.html" class="text-indigo-200 hover:text-white transition-colors">Privacy Policy</a>
+                <a href="cookies-policy.html" class="text-indigo-200 hover:text-white transition-colors">Cookies Policy</a>
+            </div>
+            
+            <button id="menu-close" class="absolute top-6 right-6 text-white hover:text-indigo-200 focus:outline-none transition-colors">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <main>
+        <!-- Cookies Policy Hero Section -->
+        <section class="hero-bg text-white text-center py-20 px-4">
+            <div class="container mx-auto">
+                <h1 class="text-4xl sm:text-5xl font-bold">Cookies Policy</h1>
+                <p class="text-xl sm:text-2xl font-light mt-4">How we use cookies and similar technologies</p>
+            </div>
+        </section>
+
+        <!-- Cookies Policy Content -->
+        <section class="py-20 px-4 bg-white">
+            <div class="container mx-auto max-w-4xl">
+                <div class="prose prose-lg mx-auto">
+                    
+                    <p class="text-gray-600 mb-8"><strong>Last updated:</strong> September 8, 2025</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">1. Introduction</h2>
+                    <p class="mb-6">This Cookies Policy explains how Marlyg Solutions ("we," "our," or "us") uses cookies and similar technologies when you visit our website marlyg.net. This policy explains what these technologies are, why we use them, and your rights to control our use of them.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">2. What Are Cookies</h2>
+                    <p class="mb-6">Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners to make their websites work more efficiently and to provide reporting information.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">3. Types of Cookies We Use</h2>
+                    
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">3.1 Essential Cookies</h3>
+                    <p class="mb-6">These cookies are strictly necessary for the operation of our website. They enable basic functions like page navigation and access to secure areas. The website cannot function properly without these cookies.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">3.2 Analytics Cookies</h3>
+                    <p class="mb-6">We may use analytics services to help us understand how visitors interact with our website. These cookies collect information about how you use our website, including which pages you visit most often and if you get error messages.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">3.3 Functional Cookies</h3>
+                    <p class="mb-6">These cookies allow our website to remember choices you make (such as your preferred language or region) and provide enhanced, more personal features.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">4. Third-Party Services</h2>
+                    <p class="mb-4">Our website may use third-party services that may set cookies on your device:</p>
+                    <ul class="list-disc pl-6 mb-6">
+                        <li><strong>Cloudflare:</strong> For website hosting and security services</li>
+                        <li><strong>Formspree:</strong> For contact form processing</li>
+                        <li><strong>Font providers:</strong> For loading web fonts</li>
+                    </ul>
+                    <p class="mb-6">These third-party services have their own privacy policies and cookie policies. We encourage you to review their policies to understand how they use cookies.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">5. How Long Do Cookies Last</h2>
+                    <p class="mb-4">Cookies can be either "session" or "persistent" cookies:</p>
+                    <ul class="list-disc pl-6 mb-6">
+                        <li><strong>Session cookies:</strong> These are temporary cookies that remain in your browser until you close it</li>
+                        <li><strong>Persistent cookies:</strong> These remain in your browser for a set period or until you delete them</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">6. Your Cookie Choices</h2>
+                    <p class="mb-4">You have several options for managing cookies:</p>
+                    
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">6.1 Browser Settings</h3>
+                    <p class="mb-6">Most web browsers allow you to control cookies through their settings. You can set your browser to refuse cookies or to alert you when cookies are being sent. However, some parts of our website may not function properly if you disable cookies.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">6.2 Opting Out</h3>
+                    <p class="mb-6">You can opt out of analytics cookies through your browser settings or by contacting us directly.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">7. Current Cookie Usage</h2>
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-6">
+                        <p class="text-blue-800"><strong>Note:</strong> Our website currently uses minimal cookies. We primarily rely on essential cookies for basic website functionality. As our website is hosted through Cloudflare Pages, some analytics and security cookies may be set by Cloudflare's services.</p>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">8. Updates to This Policy</h2>
+                    <p class="mb-6">We may update this Cookies Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Please check this page periodically for updates.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">9. Contact Us</h2>
+                    <p class="mb-4">If you have any questions about our use of cookies or this Cookies Policy, please contact us:</p>
+                    <div class="bg-gray-100 p-6 rounded-lg">
+                        <p><strong>Email:</strong> contact@marlyg.net</p>
+                        <p><strong>Phone:</strong> +61 412 345 678</p>
+                        <p><strong>Business Registration:</strong> ABN 12 345 678 901</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12 px-4">
+        <div class="container mx-auto max-w-6xl text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-left">
+                <!-- Links -->
+                <div class="space-y-2">
+                    <h4 class="text-xl font-bold text-white mb-2">Quick Links</h4>
+                    <a href="services.html" class="block hover:text-white transition-colors">Services</a>
+                    <a href="ai-solutions.html" class="block hover:text-white transition-colors">AI Solutions</a>
+                    <a href="portfolio.html" class="block hover:text-white transition-colors">Portfolio</a>
+                    <a href="pricing.html" class="block hover:text-white transition-colors">Pricing</a>
+                    <a href="about.html" class="block hover:text-white transition-colors">About</a>
+                    <a href="contact.html" class="block hover:text-white transition-colors">Contact</a>
+                    <a href="get-a-quote.html" class="block hover:text-white transition-colors">Get a Quote</a>
+                </div>
+                <!-- Contact Info -->
+                <div class="space-y-2">
+                    <h4 class="text-xl font-bold text-white mb-2">Contact</h4>
+                    <a href="tel:+61412345678" class="block hover:text-white transition-colors"><i class="fas fa-phone mr-2"></i>+61 412 345 678</a>
+                    <a href="mailto:contact@marlyg.net" class="block hover:text-white transition-colors"><i class="fas fa-envelope mr-2"></i>contact@marlyg.net</a>
+                </div>
+                <!-- Policies -->
+                <div class="space-y-2">
+                    <h4 class="text-xl font-bold text-white mb-2">Legal</h4>
+                    <a href="privacy-policy.html" class="block hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="cookies-policy.html" class="block hover:text-white transition-colors">Cookies Policy</a>
+                </div>
+            </div>
+            <hr class="border-gray-700 mb-8">
+            <div class="space-y-2">
+                <p class="text-sm">ABN: 12 345 678 901</p>
+                <p class="text-sm">&copy; 2025 Marlyg Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky header logic
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Menu overlay toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const menuOverlay = document.getElementById('menu-overlay');
+
+        menuToggle.addEventListener('click', () => {
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        menuClose.addEventListener('click', () => {
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close menu when clicking on a link
+        menuOverlay.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close menu when pressing escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuOverlay.classList.contains('active')) {
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
