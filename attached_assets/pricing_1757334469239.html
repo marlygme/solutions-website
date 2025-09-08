@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Services - Marlyg Solutions</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="marlyg.netfavicon.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-color: #5d429a;
+            background-image: linear-gradient(to right, #5d429a, #8257e5);
+        }
+        .sticky-header {
+            transition: background-color 0.3s ease;
+        }
+        .sticky-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .container {
+            width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            max-width: 64rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Sticky Header -->
+    <header id="header" class="sticky top-0 z-50 p-4 sticky-header">
+        <div class="container mx-auto flex items-center justify-between">
+            <a href="index.html" class="flex items-center">
+                <img src="https://i.imgur.com/b9K8xpP.png" alt="Marlyg Solutions Logo" class="h-8">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6 items-center">
+                <a href="services.html" class="text-gray-600 hover:text-gray-900 transition-colors">Services</a>
+                <a href="ai-solutions.html" class="text-gray-600 hover:text-gray-900 transition-colors">AI Solutions</a>
+                <a href="portfolio.html" class="text-gray-600 hover:text-gray-900 transition-colors">Portfolio</a>
+                <a href="pricing.html" class="text-indigo-600 font-semibold hover:text-gray-900 transition-colors">Pricing</a>
+                <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
+                <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                <a href="get-a-quote.html" class="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors font-medium">Get a Quote</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-white mt-4 rounded-lg shadow-lg">
+            <a href="services.html" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">Services</a>
+            <a href="ai-solutions.html" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">AI Solutions</a>
+            <a href="portfolio.html" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">Portfolio</a>
+            <a href="pricing.html" class="block py-2 px-4 text-indigo-600 font-semibold hover:bg-gray-100 transition-colors">Pricing</a>
+            <a href="about.html" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">About</a>
+            <a href="contact.html" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 transition-colors">Contact</a>
+            <a href="get-a-quote.html" class="block py-2 px-4 bg-indigo-600 text-white hover:bg-indigo-700 rounded-b-lg transition-colors font-medium">Get a Quote</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg text-white text-center py-20 px-4">
+            <div class="container mx-auto">
+                <h1 class="text-4xl sm:text-5xl font-bold">Our Pricing & Services</h1>
+                <p class="text-xl sm:text-2xl font-light mt-4">Straightforward pricing focused on delivering value.</p>
+            </div>
+        </section>
+
+        <!-- Pricing Content Section -->
+        <section class="py-20 px-4">
+            <div class="container mx-auto">
+                
+                <!-- Our Approach to Pricing -->
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Approach to Pricing</h2>
+                    <p class="text-lg text-gray-700">At Marlyg Solutions, our pricing is designed to be straightforward and focused on the value we deliver. We don't just bill for hours; we bill for the time and money our automations save your business. Our goal is to provide a clear return on investment, so you know exactly what you're getting.</p>
+                </div>
+
+                <!-- Service Tiers -->
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-800 text-center mb-12">Our Service Tiers</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        
+                        <!-- Tier 1: Standard Solutions -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-indigo-500 flex flex-col fade-in">
+                            <h3 class="text-2xl font-bold mb-4">Tier 1: Standard Solutions</h3>
+                            <p class="text-gray-600 mb-6"><strong class="text-gray-800">Best For:</strong> Businesses with a clear, specific problem they want to solve and the internal resources to manage the solution.</p>
+                            <p class="text-gray-600 mb-6"><strong class="text-gray-800">What You Get:</strong> A single, pre-built workflow to automate a repetitive task.</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-bold text-indigo-600">$500 - $2,500</span>
+                                <span class="text-gray-600">/ one-time fee</span>
+                            </div>
+                            <ul class="space-y-4 text-gray-700 flex-grow">
+                                <li class="flex items-start"><i class="fas fa-check-circle text-indigo-500 mt-1 mr-3"></i><span>A brief consultation to confirm the solution fit.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-indigo-500 mt-1 mr-3"></i><span>Workflow build, configuration, and a simple instruction guide.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-indigo-500 mt-1 mr-3"></i><span>Basic technical support for 30 days post-delivery.</span></li>
+                            </ul>
+                            <a href="get-a-quote.html" class="mt-8 w-full text-center px-6 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors font-medium">Get a Standard Quote</a>
+                        </div>
+
+                        <!-- Tier 2: Managed Solutions -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-indigo-700 flex flex-col fade-in">
+                             <h3 class="text-2xl font-bold mb-4">Tier 2: Managed Solutions</h3>
+                            <p class="text-gray-600 mb-6"><strong class="text-gray-800">Best For:</strong> Business owners who need a complete solution set up and maintained for them.</p>
+                            <p class="text-gray-600 mb-6"><strong class="text-gray-800">What You Get:</strong> A complex, multi-step workflow or a series of interconnected automations.</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-bold text-indigo-600">$2,500 - $10,000+</span>
+                                <span class="text-gray-600">/ one-time fee</span>
+                            </div>
+                            <ul class="space-y-4 text-gray-700 flex-grow">
+                                <li class="flex items-start"><i class="fas fa-check-circle text-indigo-500 mt-1 mr-3"></i><span>A detailed consultation to map your entire business process.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-indigo-500 mt-1 mr-3"></i><span>Custom build and seamless integration with your existing platforms.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-indigo-500 mt-1 mr-3"></i><span>Personalized training for your team and a comprehensive guide.</span></li>
+                            </ul>
+                            <a href="get-a-quote.html" class="mt-8 w-full text-center px-6 py-3 bg-indigo-800 text-white rounded-full hover:bg-indigo-900 transition-colors font-medium">Get a Managed Quote</a>
+                        </div>
+
+                        <!-- Tier 3: Ongoing Support & Maintenance -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-gray-800 flex flex-col fade-in">
+                            <h3 class="text-2xl font-bold mb-4">Tier 3: Ongoing Support</h3>
+                            <p class="text-gray-600 mb-6"><strong class="text-gray-800">Best For:</strong> Businesses that rely on their automations and need a partner to ensure they run smoothly.</p>
+                            <p class="text-gray-600 mb-6"><strong class="text-gray-800">What You Get:</strong> Continuous monitoring, proactive maintenance, and priority technical support.</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-bold text-indigo-600">$500 - $2,000+</span>
+                                <span class="text-gray-600">/ per month</span>
+                            </div>
+                            <ul class="space-y-4 text-gray-700 flex-grow">
+                                <li class="flex items-start"><i class="fas fa-check-circle text-indigo-500 mt-1 mr-3"></i><span>Continuous monitoring of your workflows to prevent errors.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-indigo-500 mt-1 mr-3"></i><span>Proactive updates as your business tools or APIs change.</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle text-indigo-500 mt-1 mr-3"></i><span>Priority access to support for any issues or new requests.</span></li>
+                            </ul>
+                            <a href="contact.html" class="mt-8 w-full text-center px-6 py-3 bg-gray-800 text-white rounded-full hover:bg-gray-900 transition-colors font-medium">Contact Us for Support</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Marlyg Solutions Difference -->
+                <div class="max-w-5xl mx-auto text-center mt-20">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-12">The Marlyg Solutions Difference</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <i class="fas fa-drafting-compass text-4xl text-indigo-600 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Custom-Built</h3>
+                            <p class="text-gray-700">Every solution is tailored to your unique business needs—no off-the-shelf, one-size-fits-all templates.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <i class="fas fa-expand-arrows-alt text-4xl text-indigo-600 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Scalable</h3>
+                            <p class="text-gray-700">Our solutions grow with your business, providing a foundation for future automation and efficiency.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <i class="fas fa-shield-alt text-4xl text-indigo-600 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Reliable</h3>
+                            <p class="text-gray-700">We build and manage your systems with a focus on stability and performance, so you can trust they will always be working.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12 px-4">
+        <div class="container mx-auto max-w-6xl text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-left">
+                <!-- Links -->
+                <div class="space-y-2">
+                    <h4 class="text-xl font-bold text-white mb-2">Quick Links</h4>
+                    <a href="services.html" class="block hover:text-white transition-colors">Services</a>
+                    <a href="ai-solutions.html" class="block hover:text-white transition-colors">AI Solutions</a>
+                    <a href="portfolio.html" class="block hover:text-white transition-colors">Portfolio</a>
+                    <a href="pricing.html" class="block hover:text-white transition-colors">Pricing</a>
+                    <a href="about.html" class="block hover:text-white transition-colors">About</a>
+                    <a href="contact.html" class="block hover:text-white transition-colors">Contact</a>
+                </div>
+                <!-- Contact Info -->
+                <div class="space-y-2">
+                    <h4 class="text-xl font-bold text-white mb-2">Contact</h4>
+                    <a href="tel:+61412345678" class="block hover:text-white transition-colors"><i class="fas fa-phone mr-2"></i>+61 412 345 678</a>
+                    <a href="mailto:contact@marlyg.net" class="block hover:text-white transition-colors"><i class="fas fa-envelope mr-2"></i>contact@marlyg.net</a>
+                </div>
+                <!-- Policies -->
+                <div class="space-y-2">
+                    <h4 class="text-xl font-bold text-white mb-2">Legal</h4>
+                    <a href="#" class="block hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="block hover:text-white transition-colors">Terms & Conditions</a>
+                    <a href="#" class="block hover:text-white transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+            <hr class="border-gray-700 mb-8">
+            <div class="space-y-2">
+                <p class="text-sm">ABN: 12 345 678 901</p>
+                <p class="text-sm">&copy; 2025 Marlyg Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky header logic
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.getElementById('mobile-menu').querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Fade-in on scroll
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
+
