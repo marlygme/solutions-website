@@ -95,8 +95,12 @@
     <!-- Full-Screen Menu Overlay -->
     <div id="menu-overlay" class="menu-overlay">
         <div class="menu-content">
-            <div class="mb-8">
-                <img src="https://i.imgur.com/b9K8xpP.png" alt="Marlyg Solutions Logo" class="h-12 mx-auto mb-8 brightness-0 invert">
+            <!-- Header with Logo and Close Button -->
+            <div class="flex items-center justify-center mb-12 relative">
+                <img src="https://i.imgur.com/b9K8xpP.png" alt="Marlyg Solutions Logo" class="h-12 brightness-0 invert">
+                <button id="menu-close" class="ml-6 text-white hover:text-indigo-200 focus:outline-none transition-colors">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
             </div>
             
             <nav class="space-y-6">
@@ -118,10 +122,6 @@
                 <a href="privacy-policy.html" class="text-indigo-200 hover:text-white transition-colors">Privacy Policy</a>
                 <a href="cookies-policy.html" class="text-indigo-200 hover:text-white transition-colors">Cookies Policy</a>
             </div>
-            
-            <button id="menu-close" class="absolute top-6 right-6 text-white hover:text-indigo-200 focus:outline-none transition-colors">
-                <i class="fas fa-times text-2xl"></i>
-            </button>
         </div>
     </div>
 
