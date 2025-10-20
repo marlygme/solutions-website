@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Marlyg Solutions Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <img src="/marlygicon1_1757395207146.png" alt="Marlyg Solutions" class="h-8">
+                    <span class="ml-3 text-xl font-semibold text-gray-900">Client Portal</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span id="userEmail" class="text-sm text-gray-600"></span>
+                    <button onclick="logout()" class="text-sm text-red-600 hover:text-red-800">
+                        <i class="fas fa-sign-out-alt mr-1"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div class="px-4 py-6 sm:px-0">
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">Welcome Back!</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-5">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                <i class="fas fa-file-alt text-white text-2xl"></i>
+                            </div>
+                            <div class="ml-5 w-0 flex-1">
+                                <dl>
+                                    <dt class="text-sm font-medium text-gray-500 truncate">Your Files</dt>
+                                    <dd class="text-3xl font-semibold text-gray-900" id="fileCount">0</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-5 py-3">
+                        <a href="/portal/files" class="text-sm font-medium text-blue-600 hover:text-blue-800">
+                            View all <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-5">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-green-500 rounded-md p-3">
+                                <i class="fas fa-clock text-white text-2xl"></i>
+                            </div>
+                            <div class="ml-5 w-0 flex-1">
+                                <dl>
+                                    <dt class="text-sm font-medium text-gray-500 truncate">Last Upload</dt>
+                                    <dd class="text-lg font-semibold text-gray-900" id="lastUpload">Never</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-5">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-purple-500 rounded-md p-3">
+                                <i class="fas fa-hdd text-white text-2xl"></i>
+                            </div>
+                            <div class="ml-5 w-0 flex-1">
+                                <dl>
+                                    <dt class="text-sm font-medium text-gray-500 truncate">Storage Used</dt>
+                                    <dd class="text-lg font-semibold text-gray-900" id="storageUsed">0 MB</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white shadow rounded-lg p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Quick Actions</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="/portal/files" class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                        <i class="fas fa-upload text-blue-600 text-2xl mr-4"></i>
+                        <div>
+                            <h3 class="font-medium text-gray-900">Upload Files</h3>
+                            <p class="text-sm text-gray-500">Share documents securely</p>
+                        </div>
+                    </a>
+                    <a href="/portal/files" class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                        <i class="fas fa-download text-green-600 text-2xl mr-4"></i>
+                        <div>
+                            <h3 class="font-medium text-gray-900">View Files</h3>
+                            <p class="text-sm text-gray-500">Access your documents</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function loadDashboard() {
+            try {
+                const response = await fetch('/api/portal/dashboard');
+                if (!response.ok) {
+                    if (response.status === 401) {
+                        window.location.href = '/portal/login';
+                        return;
+                    }
+                    throw new Error('Failed to load dashboard');
+                }
+
+                const data = await response.json();
+                document.getElementById('userEmail').textContent = data.email;
+                document.getElementById('fileCount').textContent = data.fileCount;
+                document.getElementById('lastUpload').textContent = data.lastUpload || 'Never';
+                document.getElementById('storageUsed').textContent = data.storageUsed;
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+            }
+        }
+
+        async function logout() {
+            try {
+                await fetch('/api/portal/logout', { method: 'POST' });
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+            window.location.href = '/portal/login';
+        }
+
+        loadDashboard();
+    </script>
+</body>
+</html>

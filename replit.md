@@ -15,35 +15,38 @@ A static website for Marlyg Solutions, an AI-powered business automation company
 - **get-a-quote.html** - Quote request page
 - **privacy-policy.html** - Privacy policy page
 - **cookies-policy.html** - Cookies policy page
-- **server.js** - Node.js static file server
+- **server.js** - Node.js server with static files and portal API
 - **update_email.py** - Utility script for updating email addresses across HTML files
 - **Assets** - Various PNG images for logos and portfolio items
 
-### Client Portal (portal.marlyg.net)
-- **cloudflare-portal/** - Separate Cloudflare Workers project for client portal
-  - **src/index.ts** - Worker API endpoints, authentication, file management
-  - **public/** - Frontend HTML pages (login, dashboard, files)
-  - **schema.sql** - D1 database schema
-  - **wrangler.toml** - Cloudflare configuration
-  - **README.md** - Portal setup and usage documentation
-  - **DEPLOYMENT.md** - Step-by-step deployment guide
-  - **PRODUCTION_CHECKLIST.md** - Critical production requirements
+### Client Portal (marlyg.net/portal)
+- **portal/** - Integrated client portal pages
+  - **login.html** - Email-based OTP login page
+  - **dashboard.html** - Client dashboard with file stats
+  - **files.html** - File management interface
+- **portal-db.js** - SQLite database module for portal
+  - User management and authentication
+  - Session management
+  - File metadata storage
+- **portal.db** - SQLite database file (auto-created)
+- **public/uploads/** - Directory for uploaded client files
+- **cloudflare-portal/** - Legacy Cloudflare Workers version (not in use)
 
 ## Technology Stack
 
 ### Main Website
 - **Frontend**: HTML5, Tailwind CSS (via CDN), Font Awesome icons
-- **Server**: Node.js HTTP server
+- **Server**: Node.js HTTP server with integrated portal API
 - **Forms**: Formspree integration for contact and quote forms
 - **Deployment**: Configured for Replit autoscale deployment
 
 ### Client Portal
-- **Runtime**: Cloudflare Workers (TypeScript)
-- **Database**: Cloudflare D1 (SQLite)
-- **Storage**: Cloudflare R2 (S3-compatible)
+- **Runtime**: Integrated Node.js server (same as main website)
+- **Database**: SQLite (better-sqlite3)
+- **Storage**: Local file system (public/uploads/)
 - **Authentication**: Email-based OTP (one-time PIN)
 - **Frontend**: HTML5, Tailwind CSS, vanilla JavaScript
-- **Deployment**: Cloudflare Workers with custom domain (portal.marlyg.net)
+- **Access**: marlyg.net/portal (integrated with main deployment)
 
 ## Setup
 - Static files served via Node.js server on port 5000
@@ -51,12 +54,14 @@ A static website for Marlyg Solutions, an AI-powered business automation company
 - All pages use Tailwind CSS for styling and responsive design
 
 ## Recent Changes
-- **January 2025**: Implemented Cloudflare Workers client portal system
-  - Email-based authentication with OTP (no signup)
-  - D1 database for user/session management
-  - R2 storage for secure file uploads/downloads
-  - Production-ready with security measures
-  - Comprehensive deployment documentation
+- **October 2025**: Integrated client portal into main Node.js server
+  - Email-based OTP authentication (no signup required)
+  - SQLite database for users, sessions, and file metadata
+  - Secure file upload/download with local storage
+  - Session management with 7-day expiry
+  - HttpOnly, Secure, SameSite cookies
+  - User-scoped file access controls
+  - Available at /portal route on main website
 - **December 2024**: Website improvements
   - Redesigned header with dropdown menu (Replit-style)
   - Added privacy policy and cookies policy pages
@@ -75,19 +80,27 @@ A static website for Marlyg Solutions, an AI-powered business automation company
 
 ## Client Portal Notes
 
-⚠️ **Production Requirement**: The client portal requires email service integration before production deployment. See `cloudflare-portal/PRODUCTION_CHECKLIST.md` for critical setup steps.
+⚠️ **Development Mode**: Currently running in development mode - OTP codes are logged to the server console instead of being emailed. Email service integration needed for production.
 
 **Portal Features**:
-- Email-only authentication (no signup - pre-approved clients only)
-- Secure file upload/download with R2 storage
+- Email-only authentication (no signup required - any email can request a code)
+- Secure file upload/download with local storage
 - Session management with 7-day expiry
-- User-scoped access controls
-- Development and production modes
+- User-scoped access controls (users only see their own files)
+- Clean, modern UI matching main website design
 
 **Security Measures**:
-- OTP codes only exposed in development mode
-- Environment-based configuration
-- Session-based authentication
-- HttpOnly, Secure cookies
-- CORS configuration
-- Authorization checks on all endpoints
+- OTP codes NOT exposed in API responses (only in server console)
+- Session-based authentication with secure tokens
+- HttpOnly, Secure, SameSite=Strict cookies
+- Authorization checks on all file operations
+- Files scoped to individual users
+- 15-minute OTP expiry
+- Session tokens stored in database
+
+**How to Use**:
+1. Visit marlyg.net/portal
+2. Enter your email address
+3. Check the server console logs for your 6-digit code
+4. Enter the code to log in
+5. Upload and manage files from the dashboard
