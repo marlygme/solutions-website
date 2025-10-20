@@ -1,0 +1,27 @@
+name = "marlyg-client-portal"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[vars]
+PORTAL_DOMAIN = "portal.marlyg.net"
+
+# SECURITY: Set ENVIRONMENT explicitly
+# - "development" = devOTP exposed, email not required
+# - "production" = devOTP hidden, email required
+# - undefined/missing = devOTP hidden, email required (safe default)
+ENVIRONMENT = "development"
+
+# For production deployment:
+# 1. Set ENVIRONMENT = "production"
+# 2. Configure email secrets:
+#    wrangler secret put EMAIL_API_KEY
+#    wrangler secret put EMAIL_FROM
+
+[[d1_databases]]
+binding = "DB"
+database_name = "marlyg-portal-db"
+database_id = "YOUR_D1_DATABASE_ID"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "marlyg-client-files"

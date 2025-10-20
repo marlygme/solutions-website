@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Marlyg Client Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-800">Marlyg Client Portal</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span id="user-name" class="text-gray-600"></span>
+                    <button onclick="logout()" class="text-red-600 hover:text-red-700">
+                        <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-8">
+            <h2 class="text-3xl font-bold text-gray-900">Welcome Back!</h2>
+            <p class="mt-2 text-gray-600">Access your files and project information</p>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="bg-blue-100 rounded-full p-3">
+                        <i class="fas fa-file text-blue-600 text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-gray-500 text-sm">Total Files</p>
+                        <p id="file-count" class="text-2xl font-bold text-gray-800">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="bg-green-100 rounded-full p-3">
+                        <i class="fas fa-project-diagram text-green-600 text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-gray-500 text-sm">Active Projects</p>
+                        <p class="text-2xl font-bold text-gray-800">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="bg-purple-100 rounded-full p-3">
+                        <i class="fas fa-clock text-purple-600 text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-gray-500 text-sm">Last Login</p>
+                        <p id="last-login" class="text-sm font-semibold text-gray-800">Today</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Files -->
+        <div class="bg-white rounded-lg shadow">
+            <div class="px-6 py-4 border-b flex justify-between items-center">
+                <h3 class="text-lg font-semibold text-gray-900">Your Files</h3>
+                <button onclick="location.href='/files'" class="text-blue-600 hover:text-blue-700">
+                    View All <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+            <div id="file-list" class="divide-y">
+                <div class="px-6 py-8 text-center text-gray-500">
+                    Loading files...
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <a href="/files" class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition cursor-pointer">
+                <div class="flex items-center">
+                    <i class="fas fa-upload text-blue-600 text-3xl"></i>
+                    <div class="ml-4">
+                        <h4 class="text-lg font-semibold text-gray-900">Upload Files</h4>
+                        <p class="text-gray-600">Share documents with your team</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://marlyg.net/contact" class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition cursor-pointer">
+                <div class="flex items-center">
+                    <i class="fas fa-envelope text-green-600 text-3xl"></i>
+                    <div class="ml-4">
+                        <h4 class="text-lg font-semibold text-gray-900">Contact Support</h4>
+                        <p class="text-gray-600">Get help from our team</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        const API_BASE = window.location.origin + '/api';
+        const token = localStorage.getItem('session_token');
+
+        if (!token) {
+            window.location.href = '/';
+        }
+
+        async function fetchUser() {
+            const response = await fetch(`${API_BASE}/user`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+
+            if (!response.ok) {
+                localStorage.removeItem('session_token');
+                window.location.href = '/';
+                return;
+            }
+
+            const { user } = await response.json();
+            document.getElementById('user-name').textContent = user.name || user.email;
+        }
+
+        async function fetchFiles() {
+            const response = await fetch(`${API_BASE}/files`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+
+            const { files } = await response.json();
+            document.getElementById('file-count').textContent = files.length;
+
+            const listEl = document.getElementById('file-list');
+            
+            if (files.length === 0) {
+                listEl.innerHTML = '<div class="px-6 py-8 text-center text-gray-500">No files yet. Upload your first file!</div>';
+                return;
+            }
+
+            listEl.innerHTML = files.slice(0, 5).map(file => `
+                <div class="px-6 py-4 flex items-center justify-between hover:bg-gray-50">
+                    <div class="flex items-center">
+                        <i class="fas fa-file-alt text-gray-400 text-xl mr-3"></i>
+                        <div>
+                            <p class="font-medium text-gray-900">${file.filename}</p>
+                            <p class="text-sm text-gray-500">${new Date(file.uploaded_at).toLocaleDateString()}</p>
+                        </div>
+                    </div>
+                    <a href="${API_BASE}/download/${file.id}" class="text-blue-600 hover:text-blue-700">
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function logout() {
+            fetch(`${API_BASE}/logout`, {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            localStorage.removeItem('session_token');
+            window.location.href = '/';
+        }
+
+        // Load data
+        fetchUser();
+        fetchFiles();
+    </script>
+</body>
+</html>

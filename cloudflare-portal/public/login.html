@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Login - Marlyg Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Marlyg Solutions</h1>
+            <p class="text-gray-600">Client Portal</p>
+        </div>
+
+        <div id="email-step" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                <input type="email" id="email" 
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="your@email.com">
+            </div>
+            <button onclick="requestOTP()" 
+                class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                Send Login Code
+            </button>
+        </div>
+
+        <div id="otp-step" class="space-y-4 hidden">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Enter 6-Digit Code</label>
+                <input type="text" id="otp" maxlength="6"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg text-center text-2xl tracking-widest focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="000000">
+                <p class="text-sm text-gray-500 mt-2">Check your email for the login code</p>
+            </div>
+            <button onclick="verifyOTP()" 
+                class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+                Verify & Login
+            </button>
+            <button onclick="backToEmail()" 
+                class="w-full bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 transition">
+                Back
+            </button>
+        </div>
+
+        <div id="message" class="mt-4 p-3 rounded-lg hidden"></div>
+
+        <div class="mt-6 text-center text-sm text-gray-500">
+            <p>Authorized clients only</p>
+            <p class="mt-2">Need access? <a href="https://marlyg.net/contact" class="text-blue-600 hover:underline">Contact us</a></p>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin + '/api';
+        let currentEmail = '';
+
+        function showMessage(text, type = 'info') {
+            const msg = document.getElementById('message');
+            msg.textContent = text;
+            msg.className = `mt-4 p-3 rounded-lg ${
+                type === 'error' ? 'bg-red-100 text-red-700' :
+                type === 'success' ? 'bg-green-100 text-green-700' :
+                'bg-blue-100 text-blue-700'
+            }`;
+            msg.classList.remove('hidden');
+        }
+
+        async function requestOTP() {
+            const email = document.getElementById('email').value.trim();
+            if (!email) {
+                showMessage('Please enter your email address', 'error');
+                return;
+            }
+
+            currentEmail = email;
+            showMessage('Sending login code...', 'info');
+
+            try {
+                const response = await fetch(`${API_BASE}/auth/request-otp`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    showMessage(data.error || 'Failed to send code', 'error');
+                    return;
+                }
+
+                // Show OTP step
+                document.getElementById('email-step').classList.add('hidden');
+                document.getElementById('otp-step').classList.remove('hidden');
+                showMessage('Login code sent! Check your email.', 'success');
+                
+                // Dev mode: show OTP in console
+                if (data.devOTP) {
+                    console.log('Dev OTP:', data.devOTP);
+                    showMessage(`Code sent! (Dev: ${data.devOTP})`, 'success');
+                }
+            } catch (error) {
+                showMessage('Network error. Please try again.', 'error');
+            }
+        }
+
+        async function verifyOTP() {
+            const otp = document.getElementById('otp').value.trim();
+            if (otp.length !== 6) {
+                showMessage('Please enter the 6-digit code', 'error');
+                return;
+            }
+
+            showMessage('Verifying...', 'info');
+
+            try {
+                const response = await fetch(`${API_BASE}/auth/verify-otp`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: currentEmail, otp })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    showMessage(data.error || 'Invalid code', 'error');
+                    return;
+                }
+
+                showMessage('Login successful! Redirecting...', 'success');
+                localStorage.setItem('session_token', data.token);
+                
+                setTimeout(() => {
+                    window.location.href = '/dashboard';
+                }, 1000);
+            } catch (error) {
+                showMessage('Network error. Please try again.', 'error');
+            }
+        }
+
+        function backToEmail() {
+            document.getElementById('email-step').classList.remove('hidden');
+            document.getElementById('otp-step').classList.add('hidden');
+            document.getElementById('otp').value = '';
+            document.getElementById('message').classList.add('hidden');
+        }
+
+        // Auto-focus email input
+        document.getElementById('email').focus();
+
+        // Enter key support
+        document.getElementById('email').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') requestOTP();
+        });
+        document.getElementById('otp').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') verifyOTP();
+        });
+    </script>
+</body>
+</html>

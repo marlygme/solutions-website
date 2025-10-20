@@ -1,0 +1,21 @@
+{
+  "name": "marlyg-client-portal",
+  "version": "1.0.0",
+  "description": "Marlyg Solutions Client Portal - Cloudflare Workers",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:local": "wrangler d1 execute marlyg-portal-db --local --file=./schema.sql",
+    "db:remote": "wrangler d1 execute marlyg-portal-db --remote --file=./schema.sql",
+    "types": "wrangler types"
+  },
+  "keywords": ["cloudflare", "workers", "d1", "r2", "client-portal"],
+  "author": "Marlyg Solutions",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250115.0",
+    "wrangler": "^3.101.0"
+  },
+  "dependencies": {}
+}
